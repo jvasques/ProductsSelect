@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductsSelect.ProductListPage">
+    <StackLayout Padding="20">
+        <Label Text="Lista de Produtos" FontSize="24" HorizontalOptions="Center" />
+
+        <ListView x:Name="ProductListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding produto_codigo}" FontAttributes="Bold"/>
+                            <Label Text=" - " />
+                            <Label Text="{Binding produto_descricao}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

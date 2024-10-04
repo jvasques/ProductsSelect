@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProductsSelect.MainPage"
+             Title="Conexão ao Banco de Dados">
+    <StackLayout Padding="20" Spacing="15">
+        <!-- Título centralizado -->
+        <Label Text="Dados do Banco de Dados" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" />
+
+        <!-- Entradas estilizadas -->
+        <Label Text="Host" FontSize="16" />
+        <Entry x:Name="HostEntry" 
+               Placeholder="Digite o host" 
+               FontSize="14"
+               HeightRequest="40"
+               Margin="0,0,0,10"
+               BackgroundColor="#f2f2f2" />
+
+        <Label Text="Porta" FontSize="16" />
+        <Entry x:Name="PortEntry" 
+               Placeholder="Digite a porta" 
+               FontSize="14"
+               Keyboard="Numeric"
+               HeightRequest="40"
+               Margin="0,0,0,10"
+               BackgroundColor="#f2f2f2" />
+
+        <Label Text="Banco de Dados" FontSize="16" />
+        <Entry x:Name="DatabaseEntry" 
+               Placeholder="Digite o nome do banco"
+               FontSize="14"
+               HeightRequest="40"
+               Margin="0,0,0,10"
+               BackgroundColor="#f2f2f2" />
+
+        <Label Text="Usuário" FontSize="16" />
+        <Entry x:Name="UserEntry" 
+               Placeholder="Digite o usuário"
+               FontSize="14"
+               HeightRequest="40"
+               Margin="0,0,0,10"
+               BackgroundColor="#f2f2f2" />
+
+        <Label Text="Senha" FontSize="16" />
+        <Entry x:Name="PasswordEntry" 
+               Placeholder="Digite a senha"
+               IsPassword="True" 
+               FontSize="14"
+               HeightRequest="40"
+               Margin="0,0,0,10"
+               BackgroundColor="#f2f2f2" />
+
+        <!-- Botão estilizado -->
+        <Button Text="Buscar"
+                FontSize="16"
+                HeightRequest="50"
+                BackgroundColor="#007AFF"
+                TextColor="White"
+                CornerRadius="10"
+                Clicked="OnSearchClicked" />
+
+        <!-- ListView com bordas e cores alternadas -->
+        <ListView x:Name="ResultListView" 
+                  Margin="0,20,0,0" 
+                  HasUnevenRows="True" 
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="Gray" 
+                               CornerRadius="5" 
+                               Padding="10" 
+                               HasShadow="True" 
+                               Margin="0,5">
+                            <StackLayout Orientation="Horizontal" 
+                                         Spacing="20" 
+                                         BackgroundColor="{Binding ., Converter={StaticResource AlternatingColorConverter}}">
+                                <Label Text="{Binding produto_codigo}" 
+                                       FontSize="14" 
+                                       HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding produto_descricao}" 
+                                       FontSize="14" 
+                                       HorizontalOptions="StartAndExpand" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
